@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "dev": "wrangler dev src/index.ts",
+        "deploy": "wrangler deploy --minify src/index.ts"
+    },
+    "dependencies": {
+        "ai": "^3.0.24",
+        "concrete.css": "^3.0.0",
+        "hono": "^4.2.5",
+        "openai": "^4.38.2"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20240419.0",
+        "wrangler": "^3.51.2"
+    }
+}
