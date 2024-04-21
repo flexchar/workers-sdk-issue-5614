@@ -20,3 +20,5 @@ bun run dev
 ```
 
 Good luck.
+
+Ref: https://github.com/cloudflare/workers-sdk/issues/5614
