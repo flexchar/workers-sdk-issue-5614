@@ -35,6 +35,11 @@ app.post('/chat', async (c) => {
 
     // Convert the response into a friendly text-stream
     const stream = OpenAIStream(response);
+
+    // IMPORTANT
+    // uncomment to disable compression and fix streaming
+    // c.res.headers.set('Content-Encoding', 'identity');
+
     // Respond with the stream
     return new StreamingTextResponse(stream);
 });

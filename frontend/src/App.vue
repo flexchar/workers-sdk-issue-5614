@@ -3,7 +3,7 @@
     import { useChat } from 'ai/vue';
     import { ref } from 'vue';
 
-    const headers = ref('');
+    const encodingHeader = ref('');
 
     const { messages, input, handleSubmit } = useChat({
         api: 'http://localhost:8787/chat',
@@ -12,10 +12,7 @@
         onResponse(response) {
             console.log(response);
 
-            headers.value = JSON.stringify([...response.headers], null, 2);
-
-            // Show compression header
-            alert(response.headers.get('content-encoding'));
+            encodingHeader.value = response.headers.get('content-encoding')!;
         },
     });
 </script>
@@ -23,7 +20,7 @@
 <template>
     <section class="flex h-full min-h-screen flex-col w-full justify-center">
         <pre class="text-white">
-          Headers {{ headers }}
+          encodingHeader: {{ encodingHeader }}
         </pre>
 
         <div class="flex flex-col w-full max-w-md py-24 mx-auto stretch">
